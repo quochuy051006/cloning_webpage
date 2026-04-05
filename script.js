@@ -46,6 +46,19 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(window.scrollY>8) header?.classList.add('scrolled'); else header?.classList.remove('scrolled');
   });
 
+  // Download button: trigger download of album cover file
+  const downloadBtn = document.getElementById('downloadBtn');
+  if(downloadBtn){
+    downloadBtn.addEventListener('click',()=>{
+      const link = document.createElement('a');
+      link.href = 'download.jpg';
+      link.download = '星辰大海-封面.jpg';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  }
+
   // Lyrics show more / show less
   const toggleBtn = document.getElementById('toggleLyrics');
   const lyricsContent = document.getElementById('lyricsContent');

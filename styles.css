@@ -18,6 +18,10 @@ body{font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, 
 .main-nav a{color:#d9d9d9;text-decoration:none;margin:0 10px;font-size:13px}
 .header-actions{display:flex;gap:8px;align-items:center}
 .header-actions .download{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:4px}
+
+/* Style header buttons to visually match page buttons while remaining visible on dark header */
+.header-actions .btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.12);padding:6px 10px;border-radius:10px;font-weight:600}
+.header-actions .btn:hover{background:rgba(255,255,255,0.04)}
 .site-header{background:var(--header);color:#fff;position:sticky;top:0;z-index:30}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
 .brand{color:var(--accent);font-weight:700;letter-spacing:0.6px}
