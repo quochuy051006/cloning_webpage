@@ -1,0 +1,48 @@
+// Minimal interactions: preview toggle and share modal
+document.addEventListener('DOMContentLoaded',()=>{
+  const previewBtn = document.getElementById('previewBtn');
+  const shareBtn = document.getElementById('shareBtn');
+  const modal = document.getElementById('shareModal');
+  const closeShare = document.getElementById('closeShare');
+  const header = document.querySelector('.site-header');
+
+  let playing = false;
+  previewBtn?.addEventListener('click',()=>{
+    playing = !playing;
+    previewBtn.textContent = playing ? '暫停' : '試聽';
+    previewBtn.setAttribute('aria-pressed', String(playing));
+    previewBtn.classList.toggle('playing', playing);
+  });
+
+  shareBtn?.addEventListener('click',()=>{
+    modal.setAttribute('aria-hidden','false');
+    const input = document.getElementById('shareLink');
+    input?.select();
+  });
+  closeShare?.addEventListener('click',()=>{
+    modal.setAttribute('aria-hidden','true');
+  });
+  // allow click outside to close
+  modal?.addEventListener('click',(e)=>{
+    if(e.target === modal) modal.setAttribute('aria-hidden','true');
+  });
+
+  // copy link on focus and provide feedback
+  const shareLink = document.getElementById('shareLink');
+  shareLink?.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(shareLink.value);
+      const prev = shareLink.value;
+      shareLink.value = '已複製到剪貼簿 ✓';
+      setTimeout(()=> shareLink.value = prev, 1400);
+    }catch(e){
+      // fallback select only
+      shareLink.select();
+    }
+  });
+
+  // small effect: add shadow to header when scrolling
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>8) header?.classList.add('scrolled'); else header?.classList.remove('scrolled');
+  });
+});

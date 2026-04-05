@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KKBOX — 星辰大海 (Clone)</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">KKBOX</div>
+        <nav class="main-nav">
+          <a href="#">特色功能</a>
+          <a href="#">訂閱方案</a>
+          <a href="#">支援平台</a>
+          <a href="#">音樂趨勢</a>
+          <a href="#">會員服務</a>
+          <a href="#">關於 KKBOX</a>
+        </nav>
+        <div class="header-actions">
+          <button id="searchBtn" class="icon">🔍</button>
+          <button class="download">下載</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero" role="region" aria-label="Song hero">
+        <div class="art">
+          <img src="download.jpg" alt="星辰大海 專輯封面" class="album-img">
+        </div>
+        <div class="hero-meta">
+          <div class="kicker">歌曲</div>
+          <h1 class="title">星辰大海</h1>
+          <a href="#" class="artist" aria-label="artist page">黃霄雲</a>
+
+          <div class="ctas">
+            <button id="previewBtn" class="btn primary" aria-pressed="false">試聽</button>
+            <button class="btn outline">聽全曲</button>
+            <button id="shareBtn" class="icon share" aria-haspopup="dialog" aria-controls="shareModal">↗</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="details">
+        <aside class="left">
+          <div class="album-block">
+            <h3>出自專輯</h3>
+            <a href="#">星辰大海</a>
+            <div class="date">2021/01/15</div>
+          </div>
+
+          <div class="tracks">
+            <h4>專輯曲目</h4>
+            <ol>
+              <li>星辰大海</li>
+              <li>星辰大海 - 伴奏</li>
+            </ol>
+          </div>
+        </aside>
+
+        <article class="right">
+          <div class="credits">
+            <strong>作詞 / 作曲 / 編曲</strong>
+            <p>瞿子千、劉濤、溫莨 等</p>
+          </div>
+
+          <div class="lyrics">
+            <h4>歌詞</h4>
+            <p>（此處為示意歌詞，採用多行文字模擬長篇歌詞區塊。）</p>
+            <p>It's my dream it's magic<br>照亮你的心 To your eyes 有多遠的距離...</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="related">
+        <h3>相關歌曲</h3>
+        <div class="card-grid">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-column">
+          <h5>探索 KKBOX</h5>
+          <ul>
+            <li><a href="#">特色功能</a></li>
+            <li><a href="#">免費聽</a></li>
+            <li><a href="#">支援平台</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>娛樂情報</h5>
+          <ul>
+            <li><a href="#">音樂趨勢</a></li>
+            <li><a href="#">音樂排行榜</a></li>
+          </ul>
+        </div>
+        <div class="footer-column social">
+          <h5>追蹤我們</h5>
+          <div class="icons">Facebook • YouTube • Instagram</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- share modal -->
+    <div id="shareModal" class="modal" aria-hidden="true">
+      <div class="modal-panel">
+        <button id="closeShare" class="modal-close">✕</button>
+        <h4>分享這首歌</h4>
+        <p>複製連結或分享至社群平台</p>
+        <input id="shareLink" readonly value="https://www.kkbox.com/tw/tc/song/9-KExfcPF6qQ23xoM4">
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

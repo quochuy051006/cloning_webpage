@@ -1,0 +1,359 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "HyfYW",
+      "x": 0,
+      "y": 0,
+      "name": "root",
+      "width": 1440,
+      "height": 1900,
+      "fill": "#F4F4F4",
+      "layout": "vertical"
+    },
+    {
+      "type": "frame",
+      "id": "EiwD9",
+      "x": 0,
+      "y": 0,
+      "name": "nav",
+      "width": 1440,
+      "height": 64,
+      "fill": "#2D2D2D",
+      "padding": [
+        18,
+        32
+      ],
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "3nk3d",
+          "name": "brand",
+          "fill": "#4CC9F0",
+          "content": "KKBOX",
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "e3Jo2",
+          "name": "navLinks",
+          "fill": "#D9D9D9",
+          "content": "特色功能   訂閱方案   支援平台   音樂趨勢   會員服務   關於 KKBOX   搜尋   下載",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "JiW0F",
+      "x": 0,
+      "y": 0,
+      "name": "hero",
+      "width": 1440,
+      "height": 260,
+      "fill": "#FFFFFF",
+      "gap": 28,
+      "padding": [
+        28,
+        32
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CiGrx",
+          "name": "art",
+          "width": 180,
+          "height": 180,
+          "fill": "#DADADA"
+        },
+        {
+          "type": "text",
+          "id": "LPoMP",
+          "name": "heroInfo",
+          "fill": "#222222",
+          "content": "歌曲\n星辰大海\n黃霄雲",
+          "fontFamily": "Inter",
+          "fontSize": 28,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "HThV4",
+          "name": "ctaPrimary",
+          "width": 116,
+          "height": 40,
+          "fill": "#D8D8D8",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VuqBC",
+              "fill": "#222222",
+              "content": "試聽",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fgApT",
+          "name": "ctaSecondary",
+          "width": 116,
+          "height": 40,
+          "fill": "#FFFFFF",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "lz2nq",
+              "fill": "#222222",
+              "content": "聽全曲",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wfb4J",
+          "name": "share",
+          "width": 28,
+          "height": 28,
+          "fill": "#E6E6E6",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "AJL1r",
+              "fill": "#666666",
+              "content": "↗",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "5CImC",
+      "x": 0,
+      "y": 0,
+      "name": "details",
+      "width": 1440,
+      "height": 540,
+      "fill": "#FFFFFF",
+      "gap": 56,
+      "padding": [
+        28,
+        32
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "MGpPh",
+          "name": "leftCol",
+          "fill": "#333333",
+          "content": "出自專輯\n星辰大海\n2021/01/15\n\n專輯曲目\n1  星辰大海\n2  星辰大海 - 伴奏",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "hELlJ",
+          "name": "rightStack",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "ihUD4",
+              "name": "credits",
+              "fill": "#333333",
+              "content": "作詞：瞿子千 / 劉濤 / 溫莨\n作曲：瞿子千 / 劉濤\n編曲：瞿子千\n製作人：瞿子千 / 劉濤\n和聲：金天 / 瞿子千 / 黃霄雲 / 郭鈺菲 / 陸晶晶\n混音：劉振東",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "RwTG4",
+              "name": "lyrics",
+              "fill": "#666666",
+              "content": "作詞成段落的歌詞區塊\n多行文字內容\n以低保真方式模擬長篇歌詞閱讀區",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xX6h6",
+      "x": 0,
+      "y": 0,
+      "name": "related",
+      "width": 1440,
+      "height": 700,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": [
+        28,
+        32
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "aBhlU",
+          "name": "relatedTitle",
+          "fill": "#222222",
+          "content": "這首歌也出現在...",
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "CCguw",
+          "name": "row1",
+          "width": "fill_container",
+          "height": 210,
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "MzO5u",
+              "name": "card1",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "AIxlB",
+              "name": "card2",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "OWzqS",
+              "name": "card3",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "Pgrir",
+              "name": "card4",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dJ3Fn",
+          "name": "row2",
+          "width": "fill_container",
+          "height": 210,
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Ghq6T",
+              "name": "card1",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "cRtQh",
+              "name": "card2",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "7xqpP",
+              "name": "card3",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            },
+            {
+              "type": "frame",
+              "id": "7YWmW",
+              "name": "card4",
+              "width": 160,
+              "height": 210,
+              "fill": "#EFEFEF",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "nSFEc",
+      "x": 0,
+      "y": 0,
+      "name": "footer",
+      "width": 1440,
+      "height": 240,
+      "fill": "#161616"
+    }
+  ]
+}
