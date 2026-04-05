@@ -45,4 +45,24 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.addEventListener('scroll',()=>{
     if(window.scrollY>8) header?.classList.add('scrolled'); else header?.classList.remove('scrolled');
   });
+
+  // Lyrics show more / show less
+  const toggleBtn = document.getElementById('toggleLyrics');
+  const lyricsContent = document.getElementById('lyricsContent');
+  if(toggleBtn && lyricsContent){
+    toggleBtn.addEventListener('click',()=>{
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      if(expanded){
+        lyricsContent.classList.remove('expanded');
+        lyricsContent.classList.add('collapsed');
+        toggleBtn.setAttribute('aria-expanded','false');
+        toggleBtn.textContent = '顯示更多';
+      }else{
+        lyricsContent.classList.remove('collapsed');
+        lyricsContent.classList.add('expanded');
+        toggleBtn.setAttribute('aria-expanded','true');
+        toggleBtn.textContent = '收起歌詞';
+      }
+    });
+  }
 });

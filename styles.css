@@ -79,6 +79,18 @@ body{font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, 
 .modal-close{border:0;background:transparent;float:right;cursor:pointer;font-size:18px}
 .modal-panel input{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;margin-top:8px}
 
+/* Lyrics collapse/expand */
+.lyrics{position:relative;margin-top:12px}
+.lyrics-content{overflow:hidden;transition:max-height .28s ease}
+.lyrics-content.collapsed{max-height:160px}
+.lyrics-content.expanded{max-height:2000px}
+.lyrics-content p{line-height:1.9;color:var(--muted);margin:10px 0}
+.lyrics-controls{margin-top:10px}
+
+/* subtle gradient to hint more content when collapsed */
+.lyrics-content.collapsed{position:relative}
+.lyrics-content.collapsed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(244,244,244,0.95) 70%);pointer-events:none;border-bottom-left-radius:6px;border-bottom-right-radius:6px}
+
 @media (max-width:900px){
   .container{padding:0 14px}
   .card-grid{grid-template-columns:repeat(2,1fr)}
