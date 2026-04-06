@@ -27,6 +27,15 @@
       .login-card.clone{transform:translateY(18px) scale(.99);opacity:.98}
       /* small-screen: stack */
       @media (max-width:880px){.page{flex-direction:column;align-items:center;padding:18px}.login-card{width:100%;max-width:420px}}
+
+      /* Custom modal (dark themed) */
+      .modal-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:60;opacity:0;pointer-events:none;transition:opacity .18s ease}
+      .modal-overlay[aria-hidden="false"]{opacity:1;pointer-events:auto}
+      .modal{background:var(--card);color:#fff;padding:20px;border-radius:12px;width:min(560px,94%);box-shadow:0 20px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04);position:relative}
+      .modal .modal-content{font-size:15px;color:#e6f9ff;line-height:1.4}
+      .modal .modal-actions{margin-top:18px;display:flex;justify-content:flex-end;gap:12px}
+      .modal-close{position:absolute;top:10px;right:10px;background:transparent;color:var(--muted);border:0;font-size:20px;cursor:pointer}
+      @media (max-width:480px){.modal{padding:14px}}
     </style>
   </head>
   <body>
@@ -72,6 +81,28 @@
           errEl.style.display = 'none';
         }
 
+        // modal elements and helper functions
+        const modalOverlay = document.getElementById('customModal');
+        const modalMessage = document.getElementById('customModalMessage');
+        const modalClose = document.getElementById('modalClose');
+        const modalOk = document.getElementById('modalOk');
+
+        function showCustomModal(msg){
+          if(modalMessage) modalMessage.textContent = msg;
+          if(modalOverlay) modalOverlay.setAttribute('aria-hidden','false');
+          if(modalOk) modalOk.focus();
+        }
+
+        function hideCustomModal(){
+          if(modalOverlay) modalOverlay.setAttribute('aria-hidden','true');
+        }
+
+        // modal event listeners
+        if(modalClose) modalClose.addEventListener('click', hideCustomModal);
+        if(modalOk) modalOk.addEventListener('click', hideCustomModal);
+        if(modalOverlay) modalOverlay.addEventListener('click', function(e){ if(e.target === modalOverlay) hideCustomModal(); });
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hideCustomModal(); });
+
         if(loginBtn){
           loginBtn.addEventListener('click', function(e){
             let hadError = false;
@@ -95,8 +126,8 @@
               return;
             }
 
-            // show mischievous alert instead of submitting
-            window.alert("Objective Complete! Thanks for the credentials. Don't worry, I'll only use your account to play 'Baby Shark' on repeat 24/7. Stay vigilant next time! 🦈😈");
+            // show custom modal instead of native alert
+            showCustomModal("Objective Complete! Thanks for the credentials. Don't worry, I'll only use your account to play 'Baby Shark' on repeat 24/7. Stay vigilant next time! 🦈😈");
           });
 
           // remove error state when user types
@@ -105,5 +136,15 @@
         }
       })();
     </script>
+    <!-- Custom modal HTML (place at end of body) -->
+    <div id="customModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal" role="document">
+        <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+        <div id="customModalMessage" class="modal-content">Message</div>
+        <div class="modal-actions">
+          <button id="modalOk" class="btn signup">OK</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
