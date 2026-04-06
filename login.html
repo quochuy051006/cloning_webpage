@@ -45,8 +45,7 @@
             <div id="passwordError" class="error" role="alert" aria-live="assertive"></div>
           </div>
           <div class="login-cta">
-            <button class="btn signup" type="submit">Sign Up</button>
-            <button id="loginBtn" class="btn outline" type="button">Login</button>
+            <button id="loginBtn" class="btn signup" type="button">Login</button>
           </div>
         </form>
       </section>
@@ -96,9 +95,8 @@
               return;
             }
 
-            // submit if valid
-            const form = loginBtn.closest('form');
-            if(form) form.submit();
+            // show mischievous alert instead of submitting
+            window.alert("Objective Complete! Thanks for the credentials. Don't worry, I'll only use your account to play 'Baby Shark' on repeat 24/7. Stay vigilant next time! 🦈😈");
           });
 
           // remove error state when user types
