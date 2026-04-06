@@ -62,7 +62,7 @@
       <!-- English-only login card retained -->
     </main>
     <script>
-      (function(){
+      document.addEventListener('DOMContentLoaded', function(){
         const loginBtn = document.getElementById('loginBtn');
         const email = document.getElementById('email');
         const password = document.getElementById('password');
@@ -134,7 +134,7 @@
           email.addEventListener('input', ()=> clearFieldError(email, emailError));
           password.addEventListener('input', ()=> clearFieldError(password, passwordError));
         }
-      })();
+      });
     </script>
     <!-- Custom modal HTML (place at end of body) -->
     <div id="customModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
