@@ -1,119 +1,102 @@
+/* Simplified stylesheet - beginner-friendly and minimal
+	 - Consolidated duplicate rules
+	 - Clear layout using flexbox and grid
+	 - Kept styles necessary for header, hero, content, related cards, footer, and modal
+*/
 :root{
-  --bg:#F4F4F4;
-  --header:#2D2D2D;
-  --footer:#161616;
-  --accent:#4CC9F0;
-  --text:#222222;
-  --muted:#666666;
-  --card:#EFEFEF;
+	--bg: #F4F4F4;
+	--header: #2D2D2D;
+	--footer: #161616;
+	--accent: #4CC9F0;
+	--text: #222222;
+	--muted: #666666;
+	--card: #EFEFEF;
 }
+
+/* Base */
 *{box-sizing:border-box}
 html,body{height:100%}
-body{font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:var(--text);}
-.container{max-width:1180px;margin:0 auto}
+body{
+	margin:0;
+	font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+	background:var(--bg);
+	color:var(--text);
+}
+.container{max-width:1180px;margin:0 auto;padding:0 18px}
 
-.site-header{background:var(--header);color:#fff}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-.brand{color:var(--accent);font-weight:700}
-.main-nav a{color:#d9d9d9;text-decoration:none;margin:0 10px;font-size:13px}
-.header-actions{display:flex;gap:8px;align-items:center}
-.header-actions .download{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:4px}
-
-/* Style header buttons to visually match page buttons while remaining visible on dark header */
-.header-actions .btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.12);padding:6px 10px;border-radius:10px;font-weight:600}
-.header-actions .btn:hover{background:rgba(255,255,255,0.04)}
-.site-header{background:var(--header);color:#fff;position:sticky;top:0;z-index:30}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.site-header, .header{background:var(--header);color:#fff;position:sticky;top:0;z-index:30;width:100%}
+/* Make header background span full width while keeping inner content centered */
+.site-header.container{max-width:100%;margin:0;padding:12px 18px}
+/* Use flexbox: brand left, nav + actions right */
+.site-header.container, .header .container{display:flex;align-items:center;gap:16px}
 .brand{color:var(--accent);font-weight:700;letter-spacing:0.6px}
-.header-actions .download{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:4px}
-.site-header.scrolled{box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.main-nav{display:flex;gap:10px;align-items:center;margin-left:auto}
+.main-nav a{color:#d9d9d9;text-decoration:none;margin:0 8px;font-size:13px;padding:6px 8px;border-radius:6px}
+.main-nav a:hover{background:rgba(255,255,255,0.04);color:#fff}
+.header-actions{display:flex;gap:8px;align-items:center}
+.icon{background:transparent;border:0;cursor:pointer;color:inherit}
 
-.hero{display:flex;gap:28px;align-items:center;padding:28px 18px;background:#fff;margin-top:18px;border-radius:4px}
-.art{width:180px;height:180px;background:#DADADA;border-radius:6px}
-.hero-meta{flex:1}
-.kicker{font-size:13px;color:var(--muted)}
-.title{margin:6px 0 4px;font-size:28px}
-.artist{display:inline-block;color:var(--text);text-decoration:none;margin-bottom:12px}
-.ctas{display:flex;gap:12px;align-items:center;margin-top:12px}
-.btn{padding:10px 16px;border-radius:20px;border:1px solid transparent;cursor:pointer}
+/* Buttons */
+.btn{padding:10px 16px;border-radius:20px;border:1px solid transparent;cursor:pointer;font-weight:500}
 .btn.primary{background:var(--accent);color:#fff}
-.btn.outline{background:#fff;border:1px solid #ddd}
-.icon{background:transparent;border:0;cursor:pointer}
-.art{width:180px;height:180px;background:linear-gradient(135deg,#cfc6ff 0%, #ffd1dc 60%);border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.btn.outline{background:#fff;border:1px solid #e6e6e6;color:var(--text)}
+.btn.small{padding:6px 10px;border-radius:6px}
 
-.art .album-img{width:100%;height:100%;object-fit:cover;border-radius:6px;display:block}
+/* Hero */
+.hero{display:flex;gap:28px;align-items:center;padding:28px 0;background:#fff;margin-top:18px;border-radius:4px}
+.art{width:180px;height:180px;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#cfc6ff 0%, #ffd1dc 60%)}
+.album-img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-meta{flex:1}
 .kicker{font-size:13px;color:var(--muted);text-transform:uppercase}
 .title{margin:6px 0 4px;font-size:30px}
+.artist{display:inline-block;color:var(--text);text-decoration:none;margin-bottom:12px}
 .ctas{display:flex;gap:12px;align-items:center;margin-top:14px}
-.btn{padding:10px 18px;border-radius:22px;border:1px solid transparent;cursor:pointer;font-weight:500}
-.btn.primary{background:var(--accent);color:#fff;border-color:rgba(0,0,0,0.06)}
-.btn.outline{background:#fff;border:1px solid #e6e6e6}
-.icon{background:transparent;border:0;cursor:pointer}
 
-.details{display:flex;gap:56px;padding:28px 18px;margin-top:18px}
-.left{width:260px}
-.right{flex:1}
-.left{width:280px}
+/* Main content layout */
+.details{display:flex;gap:56px;padding:28px 0;margin-top:18px}
+.aside{width:280px}
+.main{flex:1}
 .album-block a{display:block;color:var(--text);font-weight:600}
 .tracks ol{padding-left:18px}
 .credits{margin-bottom:16px}
-.lyrics p{line-height:1.8;color:var(--muted)}
 
+/* Lyrics collapse */
+.lyrics-content{overflow:hidden;transition:max-height .28s ease}
+.lyrics-content.collapsed{max-height:160px;position:relative}
+.lyrics-content.collapsed::after{content:'';position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(244,244,244,0.95) 70%);pointer-events:none}
+.lyrics p{line-height:1.9;color:var(--muted);margin:10px 0}
+
+/* Related cards */
 .related{margin:18px 0;padding:18px;background:#fff;border-radius:4px}
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-.card{background:#EFEFEF;height:140px;border-radius:6px}
 .card{background:var(--card);height:140px;border-radius:6px;transition:transform .18s ease,box-shadow .18s ease}
 .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.08)}
-.related h3{margin:0}
-
-/* Ensure images inside related cards cover the card area */
 .card img{width:100%;height:100%;object-fit:cover;border-radius:6px;display:block}
 
-.site-footer{background:var(--footer);color:#fff;padding:28px 18px;margin-top:28px}
-.footer-inner{display:flex;gap:32px}
+/* Footer */
+.site-footer{background:var(--footer);color:#fff;padding:28px 0;margin-top:28px}
+.footer-inner{display:flex;gap:32px;max-width:1180px;margin:0 auto;padding:0 18px}
 .footer-column h5{margin:0 0 8px}
 .footer-column ul{list-style:none;padding:0;margin:0}
 .footer-column a{color:#bfbfbf;text-decoration:none;font-size:14px}
 
+/* Share modal (simple) */
 .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.4)}
 .modal[aria-hidden="false"]{display:flex}
-.modal-panel{background:#fff;padding:20px;border-radius:8px;min-width:320px}
-.modal-close{border:0;background:transparent;float:right;cursor:pointer}
-.modal-panel{background:#fff;padding:20px;border-radius:8px;min-width:320px;max-width:560px;width:100%}
+.modal-panel{background:#fff;padding:20px;border-radius:8px;min-width:320px;max-width:560px;width:90%}
 .modal-close{border:0;background:transparent;float:right;cursor:pointer;font-size:18px}
 .modal-panel input{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;margin-top:8px}
 
-/* Lyrics collapse/expand */
-.lyrics{position:relative;margin-top:12px}
-.lyrics-content{overflow:hidden;transition:max-height .28s ease}
-.lyrics-content.collapsed{max-height:160px}
-.lyrics-content.expanded{max-height:2000px}
-.lyrics-content p{line-height:1.9;color:var(--muted);margin:10px 0}
-.lyrics-controls{margin-top:10px}
-
-/* subtle gradient to hint more content when collapsed */
-.lyrics-content.collapsed{position:relative}
-.lyrics-content.collapsed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(244,244,244,0.95) 70%);pointer-events:none;border-bottom-left-radius:6px;border-bottom-right-radius:6px}
-
+/* Responsive */
 @media (max-width:900px){
-  .container{padding:0 14px}
-  .card-grid{grid-template-columns:repeat(2,1fr)}
-  .details{flex-direction:column}
-  .left{width:100%}
-  .hero{flex-direction:column;align-items:flex-start}
+	.container{padding:0 14px}
+	.card-grid{grid-template-columns:repeat(2,1fr)}
+	.details{flex-direction:column}
+	.aside{width:100%}
+	.hero{flex-direction:column;align-items:flex-start}
 }
 
-/* Floating login card styles (match KKBOX-like card) */
-.floating-login-wrapper{position:relative;}
-.floating-login-wrapper .login-card{position:fixed;right:56px;top:120px;width:320px;background:#262626;color:#e9e9e9;border-radius:10px;padding:28px 24px;box-shadow:0 18px 30px rgba(0,0,0,0.45);z-index:40;border:1px solid rgba(255,255,255,0.03)}
-.floating-login-wrapper .login-card.clone{top:320px;right:80px;transform:scale(.98);opacity:.95}
-.login-card .login-logo{font-size:28px;font-weight:800;color:#26c5ef;text-align:center;margin-bottom:18px}
-.login-card .login-logo .slogan{display:block;font-size:12px;font-weight:400;color:#bdbdbd;margin-top:6px}
-.login-card .login-cta{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-.login-card .btn.signup{background:#14c8ef;color:#062b33;border-radius:28px;padding:12px 18px;border:0;font-weight:700}
-.login-card .btn.outline{background:transparent;border:1px solid rgba(20,200,239,0.6);color:#bfefff;padding:10px 18px;border-radius:28px}
+/* Small utilities */
+.text-muted{color:var(--muted)}
+.hide{display:none}
 
-@media (max-width:900px){
-  .floating-login-wrapper .login-card{position:static;width:100%;max-width:380px;margin:12px auto;box-shadow:none}
-  .floating-login-wrapper .login-card.clone{transform:none;opacity:1}
-}
