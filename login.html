@@ -17,6 +17,8 @@
       .login-form{margin-top:18px;display:flex;flex-direction:column;gap:12px}
       .login-form label{font-size:12px;color:var(--muted)}
       .login-form input{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#fff}
+      .login-form .error{color:#ff6b6b;font-size:12px;margin-top:6px;display:none}
+      .login-form input[aria-invalid="true"]{border-color:#ff6b6b;box-shadow:0 0 0 4px rgba(255,107,107,0.06)}
       .login-cta{display:flex;flex-direction:column;gap:12px;margin-top:12px}
       .btn{display:inline-block;text-align:center;padding:12px 16px;border-radius:28px;border:0;cursor:pointer;font-weight:700}
       .btn.signup{background:var(--accent);color:#012226}
@@ -31,23 +33,79 @@
     <main class="page" role="main">
       <section class="login-card" aria-label="KKBOX Login - English">
         <div class="login-logo">KKBOX <span class="slogan">Listen, and Be Heard.</span></div>
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" action="#" method="post" novalidate>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="name@example.com">
+            <input id="email" name="email" type="email" placeholder="name@example.com" aria-describedby="emailError">
+            <div id="emailError" class="error" role="alert" aria-live="assertive"></div>
           </div>
           <div>
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Enter your password">
+            <input id="password" name="password" type="password" placeholder="Enter your password" aria-describedby="passwordError">
+            <div id="passwordError" class="error" role="alert" aria-live="assertive"></div>
           </div>
           <div class="login-cta">
             <button class="btn signup" type="submit">Sign Up</button>
-            <button class="btn outline" type="button">Login</button>
+            <button id="loginBtn" class="btn outline" type="button">Login</button>
           </div>
         </form>
       </section>
 
       <!-- English-only login card retained -->
     </main>
+    <script>
+      (function(){
+        const loginBtn = document.getElementById('loginBtn');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        function showFieldError(inputEl, errEl, msg){
+          inputEl.setAttribute('aria-invalid','true');
+          errEl.textContent = msg;
+          errEl.style.display = 'block';
+        }
+
+        function clearFieldError(inputEl, errEl){
+          inputEl.removeAttribute('aria-invalid');
+          errEl.textContent = '';
+          errEl.style.display = 'none';
+        }
+
+        if(loginBtn){
+          loginBtn.addEventListener('click', function(e){
+            let hadError = false;
+            // clear previous
+            clearFieldError(email, emailError);
+            clearFieldError(password, passwordError);
+
+            if(!email.value.trim()){
+              showFieldError(email, emailError, 'Please fill your email.');
+              if(!hadError){ email.focus(); }
+              hadError = true;
+            }
+            if(!password.value.trim()){
+              showFieldError(password, passwordError, 'Please fill your password.');
+              if(!hadError){ password.focus(); }
+              hadError = true;
+            }
+
+            if(hadError){
+              e.preventDefault();
+              return;
+            }
+
+            // submit if valid
+            const form = loginBtn.closest('form');
+            if(form) form.submit();
+          });
+
+          // remove error state when user types
+          email.addEventListener('input', ()=> clearFieldError(email, emailError));
+          password.addEventListener('input', ()=> clearFieldError(password, passwordError));
+        }
+      })();
+    </script>
   </body>
 </html>

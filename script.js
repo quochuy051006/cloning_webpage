@@ -78,4 +78,15 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   }
+
+  // Redirect any button click on this page to the login page.
+  // Use capture phase so this runs before other click handlers.
+  document.body.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('button');
+    if (btn) {
+      e.preventDefault();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      window.location.href = 'login.html';
+    }
+  }, true);
 });
