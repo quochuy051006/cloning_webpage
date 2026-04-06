@@ -42,8 +42,8 @@ body{
 .btn.outline{background:#fff;border:1px solid #e6e6e6;color:var(--text)}
 .btn.small{padding:6px 10px;border-radius:6px}
 
-/* Hero */
-.hero{display:flex;gap:28px;align-items:center;padding:28px 0;background:#fff;margin-top:18px;border-radius:4px}
+./* Hero - full-bleed */
+.hero{display:flex;gap:28px;align-items:center;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 40px;background:#fff;margin-top:18px;box-sizing:border-box}
 .art{width:180px;height:180px;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#cfc6ff 0%, #ffd1dc 60%)}
 .album-img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-meta{flex:1}
@@ -67,7 +67,8 @@ body{
 .lyrics p{line-height:1.9;color:var(--muted);margin:10px 0}
 
 /* Related cards */
-.related{margin:18px 0;padding:18px;background:#fff;border-radius:4px}
+./* Related - full-bleed */
+.related{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 40px;background:#fff;margin:18px 0;box-sizing:border-box}
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
 .card{background:var(--card);height:140px;border-radius:6px;transition:transform .18s ease,box-shadow .18s ease}
 .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.08)}
